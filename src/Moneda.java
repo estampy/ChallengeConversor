@@ -1,6 +1,6 @@
 import java.util.List;
 
-public record Moneda(String result,
-                     String base_code,
-                     List<String> conversion_rates) {
+public record Moneda(String base_code,
+                     String target_code,
+                     double conversion_rate) {
 }
