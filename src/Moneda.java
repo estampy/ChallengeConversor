@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+import java.util.List;
 
-public record Moneda() {
+public record Moneda(String result,
+                     String base_code,
+                     List<String> conversion_rates) {
 }
