@@ -11,8 +11,8 @@ public class ConsultaAPI {
     public double buscaMoneda(String base_code,String target_code){
         String apiKey = "83dd5e9d41164de5c8675503";
         URI direccion = URI.create(
-                "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + base_code + "/" + target_code);
-
+                "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/"
+                        + base_code + "/" + target_code);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(direccion)
@@ -20,7 +20,6 @@ public class ConsultaAPI {
         try {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-
             Gson gson = new GsonBuilder().setFieldNamingPolicy(
                     FieldNamingPolicy.UPPER_CAMEL_CASE).create();
             JsonObject jsonObject = JsonParser.parseString(
@@ -29,8 +28,5 @@ public class ConsultaAPI {
         } catch (Exception e) {
             throw new RuntimeException("No se encontro la Moneda");
         }
-
-
     }
-
 }
